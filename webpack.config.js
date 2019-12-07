@@ -1,7 +1,5 @@
-// const webpack = require('webpack');
+
 const path = require('path');
-// const src_dir = path.join(__dirname, '/client/src');
-// const dist_dir = path.join(__dirname, '/client/dist');
 
 module.exports = {
   entry: './client/src/index.js',
@@ -13,10 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        use: 'babel-loader'
       },
       {
         test: /\.(css)$/,

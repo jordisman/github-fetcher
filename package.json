@@ -10,8 +10,9 @@
     ]
   },
   "scripts": {
-    "start:-dev": "webpack-dev-server",
-    "server-dev": "nodemon server/index.js"
+    "start:dev": "webpack-dev-server",
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch"
   },
   "keywords": [],
   "author": "Jordis Man",
