@@ -1,7 +1,7 @@
 {
-  "name": "twitter-fetcher",
+  "name": "repo-fetcher",
   "version": "1.0.0",
-  "description": "fullstack app to fetch tweets by username",
+  "description": "fullstack app to fetch github user's repo",
   "main": "index.js",
   "babel": {
     "presets": [
