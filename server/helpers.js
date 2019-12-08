@@ -1,4 +1,5 @@
 const config = require('./config.js');
+const request = require('request');
 
 module.exports.getRepoByUser = (username, cb) => {
   let options = {
