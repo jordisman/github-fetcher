@@ -1,11 +1,19 @@
 import React from 'react';
 import RepoEntry from './RepoEntry.jsx';
 
-const RepoList = (repos) => {
+const RepoList = ({repos}) => {
+  console.log(repos);
+  // let searchedRepos = (reposFound, searchTerm) => {
+  //   return reposFound.filter(repo => {
+  //     if (repo.userName === searchTerm) {
+  //       return reposFound.userName.length
+  //     }
+  //   })
+  // }
   return (
     <div>
       <h4>Repo List Search Results: </h4>
-      There are {props.repos.length} repos found.
+      <p>There are {repos.length} repos found.</p>
 
       <table>
         <tbody>
