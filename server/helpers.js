@@ -1,7 +1,7 @@
 const config = require('./config.js');
 const request = require('request');
 
-module.exports.getRepoByUser = (username, cb) => {
+let getReposByUsername = (username, callback) => {
   let options = {
     url: `https://api.github.com/users/${username}/repos`,
     headers: {
@@ -10,7 +10,13 @@ module.exports.getRepoByUser = (username, cb) => {
     }
   };
 
-  request(options, (err, res, body) => {
-    cb(JSON.parse(body));
+  request.get(options, (err, res, body) => {
+    if (err) {
+      console.log('Failed:', err);
+    } else {
+      callback(JSON.parse(body));
+    }
   });
 }
+
+module.exports.getReposByUsername = getReposByUsername;

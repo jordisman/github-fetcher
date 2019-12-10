@@ -13,10 +13,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/repos', function (req, res) {
-  let saveRepos = repos => repos.forEach(db.save);
-  helpers.getReposByUsername(req.body.username, saveRepos);
-  res.status(200).send('repos posted!');
+  // console.log('req.body.owner:', req.body);
+  helpers.getReposByUsername(req.body.username, (repos) => {
+    // console.log('app.post-repos:', repos);
+    let data = repos.map(repo => {
+      // console.log('repo:', repo);
+      return ({
+        id: repo.id,
+        userName: repo.owner.login,
+        repoName: repo.name,
+        html_url: repo.html_url,
+        created_at: repo.created_at
+      })
+    })
+    // console.log('data', data);
+    db.save(data, () => {
+      res.status(200).send(repos);
+    });
+
+  });
 });
+
 
 app.get('/repos', function (req, res) {
   db.find(repos => {
